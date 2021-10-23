@@ -1,1 +1,1 @@
-<h1 align=center> ConverterSS </h1>
+<h1 align=center>Конвертер систем счисления</h1>
