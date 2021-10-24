@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
     TextView textCopy;
     String number;
     BigInteger c;
+    ImageButton c_btn;
     int a;
     int b;    
         
