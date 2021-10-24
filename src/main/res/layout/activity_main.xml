@@ -52,17 +52,7 @@
         android:layout_marginRight="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginTop="160dp"
-
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+   
     <ImageButton
         android:id="@+id/c_btn"
         android:layout_width="wrap_content"
@@ -85,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Результат"
-        android:textSize="32sp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -103,7 +93,7 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="number"
-        android:text="Начальное значение"
+        android:hint="Начальное значение"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/result"
         app:layout_constraintHorizontal_bias="0.028"
@@ -121,7 +111,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:onClick="Convertize"
-        android:text="КОнвертировать"
+        android:text="Конвертировать"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
