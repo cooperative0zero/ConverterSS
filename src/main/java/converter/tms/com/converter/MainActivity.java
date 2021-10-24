@@ -32,6 +32,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
             
+            textCopy = findViewById(R.id.result);
+            
             clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
         ImageButton c_btn= findViewById(R.id.c_btn);
 
@@ -72,7 +74,6 @@ public class MainActivity extends Activity {
 
     public void Convertize(View view) {
         c = new BigInteger(new BigInteger(Number, 10).toString(2));
-        textCopy = findViewById(R.id.result);
         textCopy.setText(String.valueOf(c));
     }
 
