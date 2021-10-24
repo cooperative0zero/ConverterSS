@@ -37,9 +37,8 @@ public class MainActivity extends Activity {
             textCopy = findViewById(R.id.result);
             
             clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-        ImageButton c_btn= findViewById(R.id.c_btn);
 
-        ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, ish);
+        ArrayAdapter<String> Adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, ish);
      Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
      Spinner spinner= (Spinner) findViewById(R.id.spinner);
      spinner.setAdapter(Adapter);
@@ -69,7 +68,7 @@ public class MainActivity extends Activity {
         };
         spinner.setOnItemSelectedListener(itemSelectedListener1);
 
-        ArrayAdapter<String> Adapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, kon);
+        ArrayAdapter<String> Adapter1 = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, kon);
         Adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner spinner1= (Spinner) findViewById(R.id.spinner1);
         spinner1.setAdapter(Adapter1);
