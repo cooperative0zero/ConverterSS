@@ -26,7 +26,8 @@ public class MainActivity extends Activity {
     TextView textCopy;
     String Number;
     BigInteger c;
-    int a,b;
+    int a;
+    int b;    
         
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +51,13 @@ public class MainActivity extends Activity {
                 if (position1 == 0) {
                     a= 2;
                 }
-                if (position1 == 1) {
+                else if (position1 == 1) {
                     a= 8;
                 }
-                if (position1 == 2) {
+                else if (position1 == 2) {
                     a= 10;
                 }
-                if (position1 == 3) {
+                else if (position1 == 3) {
                     a= 16;
                 }
             }
@@ -79,13 +80,13 @@ public class MainActivity extends Activity {
                 if (position2 == 0) {
                     b= 2;
                 }
-                if (position2 == 1) {
+                else if (position2 == 1) {
                     b= 8;
                 }
-                if (position2 == 2) {
+                else if (position2 == 2) {
                     b= 10;
                 }
-                if (position2 == 3) {
+                else if (position2 == 3) {
                     b= 16;
                 }
             }
