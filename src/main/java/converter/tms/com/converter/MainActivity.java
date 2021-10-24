@@ -17,14 +17,14 @@ import java.math.BigInteger;
 
 public class MainActivity extends Activity {
 
-        private String[] syst_ish = {"2-чной","8-чной","10-чной","16-чной"};
-        private String[] syst_kon = {"2-чную","8-чную","10-чную","16-чную"};
+        private String[] ish = {"2-чной","8-чной","10-чной","16-чной"};
+        private String[] kon = {"2-чную","8-чную","10-чную","16-чную"};
 
         
     ClipboardManager clipboardManager ;
     ClipData clipData;
     TextView textCopy;
-    String Number;
+    String number;
     BigInteger c;
     int a;
     int b;    
@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
             clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
         ImageButton c_btn= findViewById(R.id.c_btn);
 
-        ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, syst_ish);
+        ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, ish);
      Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
      Spinner spinner= (Spinner) findViewById(R.id.spinner);
      spinner.setAdapter(Adapter);
@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
         };
         spinner.setOnItemSelectedListener(itemSelectedListener1);
 
-        ArrayAdapter<String> Adapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, syst_kon);
+        ArrayAdapter<String> Adapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, kon);
         Adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner spinner1= (Spinner) findViewById(R.id.spinner1);
         spinner1.setAdapter(Adapter1);
@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
                                                   (keyCode == KeyEvent.KEYCODE_ENTER))
                                           {
                                               // сохраняем текст, введённый до нажатия Enter в переменную
-                                              Number = editText.getText().toString();
+                                              number = editText.getText().toString();
                                               return true;
                                           }
                                           return false;
@@ -125,7 +125,7 @@ public class MainActivity extends Activity {
 
 
     public void Convertize(View view) {
-        c = new BigInteger(new BigInteger(Number, a).toString(b));
+        c = new BigInteger(new BigInteger(number, a).toString(b));
         textCopy.setText(String.valueOf(c));
     }
 
