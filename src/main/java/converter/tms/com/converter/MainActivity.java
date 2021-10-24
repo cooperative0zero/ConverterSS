@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
     TextView textCopy;
     String Number;
     BigInteger c;
+    int a,b;
         
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +42,61 @@ public class MainActivity extends Activity {
      Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
      Spinner spinner= (Spinner) findViewById(R.id.spinner);
      spinner.setAdapter(Adapter);
+            
+                    AdapterView.OnItemSelectedListener itemSelectedListener1 = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position1, long id) {
+
+                if (position1 == 0) {
+                    a= 2;
+                }
+                if (position1 == 1) {
+                    a= 8;
+                }
+                if (position1 == 2) {
+                    a= 10;
+                }
+                if (position1 == 3) {
+                    a= 16;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        };
+        spinner.setOnItemSelectedListener(itemSelectedListener1);
 
         ArrayAdapter<String> Adapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, syst_kon);
         Adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner spinner1= (Spinner) findViewById(R.id.spinner1);
         spinner1.setAdapter(Adapter1);
+            
+            AdapterView.OnItemSelectedListener itemSelectedListener2 = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position2, long id) {
+
+                if (position2 == 0) {
+                    b= 2;
+                }
+                if (position2 == 1) {
+                    b= 8;
+                }
+                if (position2 == 2) {
+                    b= 10;
+                }
+                if (position2 == 3) {
+                    b= 16;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        };
+
+
+        spinner1.setOnItemSelectedListener(itemSelectedListener2);
             
             final EditText editText = findViewById(R.id.editTextTextNumber);
         editText.setOnKeyListener(new View.OnKeyListener()
@@ -73,7 +124,7 @@ public class MainActivity extends Activity {
 
 
     public void Convertize(View view) {
-        c = new BigInteger(new BigInteger(Number, 10).toString(2));
+        c = new BigInteger(new BigInteger(Number, a).toString(b));
         textCopy.setText(String.valueOf(c));
     }
 
