@@ -38,10 +38,10 @@ public class MainActivity extends Activity {
             
             clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
 
-        ArrayAdapter<String> Adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, ish);
-     Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapt = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, ish);
+     adapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
      Spinner spinner= (Spinner) findViewById(R.id.spinner);
-     spinner.setAdapter(Adapter);
+     spinner.setAdapter(adapt);
             
                     AdapterView.OnItemSelectedListener itemSelectedListener1 = new AdapterView.OnItemSelectedListener() {
             @Override
@@ -68,10 +68,10 @@ public class MainActivity extends Activity {
         };
         spinner.setOnItemSelectedListener(itemSelectedListener1);
 
-        ArrayAdapter<String> Adapter1 = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, kon);
-        Adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapt1 = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, kon);
+        adapt1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner spinner1= (Spinner) findViewById(R.id.spinner1);
-        spinner1.setAdapter(Adapter1);
+        spinner1.setAdapter(adapt1);
             
             AdapterView.OnItemSelectedListener itemSelectedListener2 = new AdapterView.OnItemSelectedListener() {
             @Override
