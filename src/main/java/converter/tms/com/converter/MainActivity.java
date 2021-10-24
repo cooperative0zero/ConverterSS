@@ -64,6 +64,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                    throw new UnsupportedOperationException();
             }
         };
         spinner.setOnItemSelectedListener(itemSelectedListener1);
@@ -93,6 +94,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                    throw new UnsupportedOperationException();
             }
         };
 
