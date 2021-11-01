@@ -29,12 +29,14 @@ public class MainActivity extends Activity {
     int a;
     int b;    
     Boolean check;
+    EditText editText;
         
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
             
+            editText = findViewById(R.id.editTextTextNumber);
             textCopy = findViewById(R.id.result);
             
             clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
@@ -101,7 +103,7 @@ public class MainActivity extends Activity {
 
         spinner1.setOnItemSelectedListener(itemSelectedListener2);
             
-            final EditText editText = findViewById(R.id.editTextTextNumber);
+             
         editText.setOnKeyListener(new View.OnKeyListener()
                                   {
                                       public boolean onKey(View v, int keyCode, KeyEvent event)
@@ -127,6 +129,7 @@ public class MainActivity extends Activity {
 
 
     public void Convertize(View view) {
+        Number = editText.getText().toString();
         if (a==2){
             if (Number.matches("[0-1-]+"))
             {
