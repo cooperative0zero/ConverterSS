@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
     ImageButton c_btn;
     int a;
     int b;    
+    Boolean check;
         
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,8 +128,53 @@ public class MainActivity extends Activity {
 
 
     public void Convertize(View view) {
-        c = new BigInteger(new BigInteger(number, a).toString(b));
-        textCopy.setText(String.valueOf(c));
+        if (a==2){
+            if (Number.matches("[0-1-]+"))
+            {
+                String c = new String(new BigInteger(Number, a).toString(b));
+                textCopy.setText(String.valueOf(c.toUpperCase()));
+            }
+            else{
+                textCopy.setText("Error!");
+            }
+        }
+        
+        if (a==8){
+            if (Number.matches("[0-7-]+"))
+            {
+                String c = new String(new BigInteger(Number, a).toString(b));
+                textCopy.setText(String.valueOf(c.toUpperCase()));
+            }
+            else{
+                textCopy.setText("Error!");
+            }
+        }
+        if (a==10){
+            if (Number.matches("[0-9-]+"))
+            {
+                String c = new String(new BigInteger(Number, a).toString(b));
+                textCopy.setText(String.valueOf(c.toUpperCase()));
+            }
+            else{
+                textCopy.setText("Error!");
+            }
+        }
+        if (a==16){
+
+
+                check=false;
+                if (Number.matches("[0-9a-fA-F-]+")) {
+                    String c = new String(new BigInteger(Number, a).toString(b));
+                    textCopy.setText(String.valueOf(c.toUpperCase()));
+                    check = true;
+                }
+
+                if (check == false) {
+                    textCopy.setText("Error!");
+                }
+            }
+
+
     }
 
 
