@@ -132,9 +132,9 @@ public class MainActivity extends Activity {
 
 
     public void Convertize(View view) {
-        Number = editText.getText().toString();
+        number = editText.getText().toString();
         if (a==2){
-            if (Number.matches("[0-1-]+"))
+            if (number.matches("[0-1-]+"))
             {
                 String c = new String(new BigInteger(Number, a).toString(b));
                 textCopy.setText(String.valueOf(c.toUpperCase()));
@@ -145,7 +145,7 @@ public class MainActivity extends Activity {
         }
         
         if (a==8){
-            if (Number.matches("[0-7-]+"))
+            if (number.matches("[0-7-]+"))
             {
                 String c = new String(new BigInteger(Number, a).toString(b));
                 textCopy.setText(String.valueOf(c.toUpperCase()));
@@ -155,7 +155,7 @@ public class MainActivity extends Activity {
             }
         }
         if (a==10){
-            if (Number.matches("[0-9-]+"))
+            if (number.matches("[0-9-]+"))
             {
                 String c = new String(new BigInteger(Number, a).toString(b));
                 textCopy.setText(String.valueOf(c.toUpperCase()));
@@ -168,7 +168,7 @@ public class MainActivity extends Activity {
 
 
                 check=false;
-                if (Number.matches("[0-9a-fA-F-]+")) {
+                if (number.matches("[0-9a-fA-F-]+")) {
                     String c = new String(new BigInteger(Number, a).toString(b));
                     textCopy.setText(String.valueOf(c.toUpperCase()));
                     check = true;
