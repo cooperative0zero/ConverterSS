@@ -1,6 +1,7 @@
 package converter.tms.com.converter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -27,7 +28,7 @@ public class MainActivity extends Activity {
     ClipboardManager clipboardManager ;
     ClipData clipData;
     TextView textCopy;
-    String number;
+    String Number;
     ImageButton c_btn;
     int a;
     int b;    
@@ -115,7 +116,7 @@ public class MainActivity extends Activity {
                                                   (keyCode == KeyEvent.KEYCODE_ENTER))
                                           {
                                               // сохраняем текст, введённый до нажатия Enter в переменную
-                                              number = editText.getText().toString();
+                                              Number = editText.getText().toString();
                                               return true;
                                           }
                                           return false;
@@ -132,9 +133,9 @@ public class MainActivity extends Activity {
 
 
     public void Convertize(View view) {
-        number = editText.getText().toString();
+        Number = editText.getText().toString();
         if (a==2){
-            if (number.matches("[0-1-]+"))
+            if (Number.matches("[0-1-]+"))
             {
                 String c = new String(new BigInteger(Number, a).toString(b));
                 textCopy.setText(String.valueOf(c.toUpperCase()));
@@ -145,7 +146,7 @@ public class MainActivity extends Activity {
         }
         
         if (a==8){
-            if (number.matches("[0-7-]+"))
+            if (Number.matches("[0-7-]+"))
             {
                 String c = new String(new BigInteger(Number, a).toString(b));
                 textCopy.setText(String.valueOf(c.toUpperCase()));
@@ -155,7 +156,7 @@ public class MainActivity extends Activity {
             }
         }
         if (a==10){
-            if (number.matches("[0-9-]+"))
+            if (Number.matches("[0-9-]+"))
             {
                 String c = new String(new BigInteger(Number, a).toString(b));
                 textCopy.setText(String.valueOf(c.toUpperCase()));
@@ -168,7 +169,7 @@ public class MainActivity extends Activity {
 
 
                 check=false;
-                if (number.matches("[0-9a-fA-F-]+")) {
+                if (Number.matches("[0-9a-fA-F-]+")) {
                     String c = new String(new BigInteger(Number, a).toString(b));
                     textCopy.setText(String.valueOf(c.toUpperCase()));
                     check = true;
@@ -182,5 +183,8 @@ public class MainActivity extends Activity {
 
     }
 
-
+    public void OpenHistory(View view) {
+        Intent intent = new Intent(this,HistoryActivity.class);
+        startActivity(intent);
+    }
 }
