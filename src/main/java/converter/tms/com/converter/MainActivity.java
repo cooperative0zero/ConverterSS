@@ -128,8 +128,7 @@ public class MainActivity extends Activity {
 
     public void Convertize(View view) {
         number = editText.getText().toString();
-        if (a==2){
-            if (number.matches("[0-1-]+"))
+        if (((a==2)&&(Number.matches("[0-1-]+")))||((a==8)&&(Number.matches("[0-7-]+")))||((a==10)&&(Number.matches("[0-9-]+")))||((a==16)&&(Number.matches("[0-9a-fA-F-]+"))))
             {
                 textCopy.setTextColor(getResources().getColor(R.color.green));
                 String c = String.valueOf( new BigInteger(number, a).toString(b));
@@ -141,7 +140,7 @@ public class MainActivity extends Activity {
             }
         }
 
-        if (a==8){
+       /* if (a==8){
             if (number.matches("[0-7-]+"))
             {
                 textCopy.setTextColor(getResources().getColor(R.color.green));
@@ -180,9 +179,9 @@ public class MainActivity extends Activity {
                     textCopy.setTextColor(getResources().getColor(R.color.red));
                     textCopy.setText(getResources().getString(R.string.errror));
                 }
-            }
+            }*/
 
-    }
+    
     public void OpenHistory(View view) {
         Intent intent = new Intent(this,HistoryActivity.class);
         startActivity(intent);
