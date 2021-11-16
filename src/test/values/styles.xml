@@ -1,0 +1,9 @@
+<resources>
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+
+    </style>
+    <style name="Theme_for_converter" parent="AppTheme" >
+        <item name="android:colorForeground">@color/bright_foreground_holo_light</item>
+    </style>
+
+</resources>

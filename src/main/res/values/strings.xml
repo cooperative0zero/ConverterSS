@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Конвертер систем счисления</string>
+    <string name="main">Конвертер: Основная страница</string>
     <string name="title_activity_history">HistoryActivity</string>
-
+    <string name="textView2">в</string>
+    <string name="textView">Перевод из</string>
+    <string name="c_btn">Copy</string>
+    <string name="result">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020Результат</string>
+    <string name="editTextTextNumber">Начальное значение</string>
+    <string name="convert">КОНВЕРТИРОВАТЬ</string>
+    <string name="errror">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020Error!</string>
 </resources>
