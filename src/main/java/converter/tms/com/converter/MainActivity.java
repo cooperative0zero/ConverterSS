@@ -2,28 +2,24 @@ package converter.tms.com.converter;
 
 import android.app.Activity;
 import android.content.Intent;
-//import android.content.SharedPreferences;
 import android.os.Bundle;
-//import android.support.v7.app.AppCompatDelegate;
-//import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-//import android.widget.Button;
-//import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.widget.TextView;
 import java.math.BigInteger;
-//import android.widget.CompoundButton;
 import java.lang.Boolean;
 
 public class MainActivity extends Activity {
 
-        private String[] ish = {"2-чной","8-чной","10-чной","16-чной"},
+        private String[] 
+                ish = {"2-чной","8-чной","10-чной","16-чной"},
+        
                 kon = {"2-чную","8-чную","10-чную","16-чную"};
 
 
