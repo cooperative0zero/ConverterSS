@@ -128,7 +128,7 @@ public class MainActivity extends Activity {
 
     public void Convertize(View view) {
         number = editText.getText().toString();
-        if (((a==2)&&(Number.matches("[0-1-]+")))||((a==8)&&(Number.matches("[0-7-]+")))||((a==10)&&(Number.matches("[0-9-]+")))||((a==16)&&(Number.matches("[0-9a-fA-F-]+"))))
+        if (((a==2)&&(number.matches("[0-1-]+")))||((a==8)&&(number.matches("[0-7-]+")))||((a==10)&&(number.matches("[0-9-]+")))||((a==16)&&(number.matches("[0-9a-fA-F-]+"))))
             {
                 textCopy.setTextColor(getResources().getColor(R.color.green));
                 String c = String.valueOf( new BigInteger(number, a).toString(b));
