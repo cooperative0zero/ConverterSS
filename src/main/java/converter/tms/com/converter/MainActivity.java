@@ -1,6 +1,7 @@
 package converter.tms.com.converter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -13,10 +14,15 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.widget.TextView;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-        private String[] ish = {"2-чной","8-чной","10-чной","16-чной"};
+    private String[] ish = {"2-чной","8-чной","10-чной","16-чной"};
         private String[] kon = {"2-чную","8-чную","10-чную","16-чную"};
 
 
@@ -24,18 +30,29 @@ public class MainActivity extends Activity {
     ClipData clipData;
     TextView textCopy;
     String number;
+    String c;
+    String listchild;
+    SharedPreferences save;
     int a;
     int b;    
     Boolean check;
     EditText editText;
+    List<String> Convertations = new ArrayList<String>();
         
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editText = findViewById(R.id.editTextTextNumber);
-        textCopy = findViewById(R.id.result);
+          editText = findViewById(R.id.editTextTextNumber);
+          textCopy = findViewById(R.id.result);
         clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        save = getSharedPreferences("result",Context.MODE_PRIVATE);
+
+        if(save.contains("length")&&Convertations.isEmpty()) {
+            for (int c=0;c < save.getInt("length", 0);c++) {
+                Convertations.add(c, save.getString("res"+c, ""));
+            }
+        }
 
 
 
@@ -120,6 +137,7 @@ public class MainActivity extends Activity {
         );
             
     }
+
         public void CopyClick(View view) {
             clipData = ClipData.newPlainText("text", textCopy.getText());
             clipboardManager.setPrimaryClip(clipData);
@@ -131,7 +149,35 @@ public class MainActivity extends Activity {
         if (((a==2)&&(number.matches("[0-1-]+")))||((a==8)&&(number.matches("[0-7-]+")))||((a==10)&&(number.matches("[0-9-]+")))||((a==16)&&(number.matches("[0-9a-fA-F-]+"))))
             {
                 textCopy.setTextColor(getResources().getColor(R.color.green));
-                String c = String.valueOf( new BigInteger(number, a).toString(b));
+                c = String.valueOf( new BigInteger(number, a).toString(b));
+
+                Toast.makeText(getApplicationContext(), String.valueOf(Convertations.size()),Toast.LENGTH_SHORT).show();
+
+                    if (Convertations.size()==0)
+                    {
+                        Convertations.add(0,c);
+                        save.edit().putString("number0",number).apply();
+                        listchild = "Перевод числа "+save.getString("number"+0, "")+" ("+a+"-чная система счисления) в число "+Convertations.get(0)+"("+b+"-чная система счисления);";
+                        save.edit().putString("res"+0,listchild).apply();
+                    }
+                    else
+                    {
+                        Convertations.add(Convertations.size(),c);
+                        save.edit().putString("number"+(Convertations.size()-1),number).apply();
+                        listchild = "Перевод числа "+number+" ("+a+"-чная система счисления) в число "+Convertations.get(Convertations.size()-1)+"("+b+"-чная система счисления);";
+                        save.edit().putString("res"+(Convertations.size()-1),listchild).apply();
+
+
+                    }
+                    save.edit().putInt("length",Convertations.size()).apply();
+
+                //for(int i = Convertations.size()-1; i < Convertations.size(); i++) {
+                    //listchild = "Перевод числа "+save.getString("number"+i, "")+" ("+a+"-чная система счисления) в число "+Convertations.get(i)+"("+b+"-чная система счисления);";
+                   // save.edit().putString("res"+i,listchild).apply();
+                //}
+
+
+
                 textCopy.setText(String.valueOf(c.toUpperCase()));
             }
             else{
