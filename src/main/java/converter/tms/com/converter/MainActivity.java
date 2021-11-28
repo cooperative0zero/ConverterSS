@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
 
                     AdapterView.OnItemSelectedListener itemSelectedListener1 = new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position1, long id) {
+            public void onItemSelected(AdapterView<?> parent, View spinner, int position1, long id) {
 
                 if (position1 == 0) {
                     a= 2;
@@ -94,7 +94,7 @@ public class MainActivity extends Activity {
             
             AdapterView.OnItemSelectedListener itemSelectedListener2 = new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position2, long id) {
+            public void onItemSelected(AdapterView<?> parent, View spinner1, int position2, long id) {
 
                 if (position2 == 0) {
                     b= 2;
@@ -120,31 +120,17 @@ public class MainActivity extends Activity {
         spinner1.setOnItemSelectedListener(itemSelectedListener2);
             
              
-        editText.setOnKeyListener(new View.OnKeyListener()
-                                  {
-                                      public boolean onKey(View v, int keyCode, KeyEvent event)
-                                      {
-                                          if(event.getAction() == KeyEvent.ACTION_DOWN &&
-                                                  (keyCode == KeyEvent.KEYCODE_ENTER))
-                                          {
-                                              // сохраняем текст, введённый до нажатия Enter в переменную
-                                              number = editText.getText().toString();
-                                              return true;
-                                          }
-                                          return false;
-                                      }
-                                  }
-        );
+
             
     }
 
-        public void CopyClick(View view) {
+        public void CopyClick(View CopyClick) {
             clipData = ClipData.newPlainText("text", textCopy.getText());
             clipboardManager.setPrimaryClip(clipData);
 
         }
 
-    public void Convertize(View view) {
+    public void Convertize(View convert) {
         number = editText.getText().toString();
         if (((a==2)&&(number.matches("[0-1-]+")))||((a==8)&&(number.matches("[0-7-]+")))||((a==10)&&(number.matches("[0-9-]+")))||((a==16)&&(number.matches("[0-9a-fA-F-]+"))))
             {
@@ -228,7 +214,7 @@ public class MainActivity extends Activity {
             }*/
 
     
-    public void OpenHistory(View view) {
+    public void OpenHistory(View history) {
         Intent intent = new Intent(this,HistoryActivity.class);
         startActivity(intent);
     }
