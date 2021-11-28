@@ -17,13 +17,12 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
     private String[] ish = {"2-чной","8-чной","10-чной","16-чной"};
-        private String[] kon = {"2-чную","8-чную","10-чную","16-чную"};
+    private String[] kon = {"2-чную","8-чную","10-чную","16-чную"};
 
 
     ClipboardManager clipboardManager ;
@@ -37,8 +36,9 @@ public class MainActivity extends Activity {
     int b;    
     Boolean check;
     EditText editText;
-    List<String> Convertations = new ArrayList<String>();
-        
+    List<String> Convertations = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,6 +127,7 @@ public class MainActivity extends Activity {
         public void CopyClick(View CopyClick) {
             clipData = ClipData.newPlainText("text", textCopy.getText());
             clipboardManager.setPrimaryClip(clipData);
+            Toast.makeText(getApplicationContext(),"Скопировано",Toast.LENGTH_SHORT).show();
 
         }
 
@@ -137,20 +138,18 @@ public class MainActivity extends Activity {
                 textCopy.setTextColor(getResources().getColor(R.color.green));
                 c = String.valueOf( new BigInteger(number, a).toString(b));
 
-                Toast.makeText(getApplicationContext(), String.valueOf(Convertations.size()),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Успешно конвертировано",Toast.LENGTH_SHORT).show();
 
                     if (Convertations.size()==0)
                     {
-                        Convertations.add(0,c);
-                        save.edit().putString("number0",number).apply();
-                        listchild = "Перевод числа "+save.getString("number"+0, "")+" ("+a+"-чная система счисления) в число "+Convertations.get(0)+"("+b+"-чная система счисления);";
+                        Convertations.add(0,c.toUpperCase());
+                        listchild = "Перевод числа: "+number+" ("+a+")\nв число:                "+Convertations.get(Convertations.size()-1)+" ("+b+")";
                         save.edit().putString("res"+0,listchild).apply();
                     }
                     else
                     {
-                        Convertations.add(Convertations.size(),c);
-                        save.edit().putString("number"+(Convertations.size()-1),number).apply();
-                        listchild = "Перевод числа "+number+" ("+a+"-чная система счисления) в число "+Convertations.get(Convertations.size()-1)+"("+b+"-чная система счисления);";
+                        Convertations.add(Convertations.size(),c.toUpperCase());
+                        listchild = "Перевод числа: "+ number+" ("+a+")\nв число:               "+Convertations.get(Convertations.size()-1)+" ("+b+")";
                         save.edit().putString("res"+(Convertations.size()-1),listchild).apply();
 
 
@@ -167,10 +166,21 @@ public class MainActivity extends Activity {
                 textCopy.setText(String.valueOf(c.toUpperCase()));
             }
             else{
+            Toast.makeText(getApplicationContext(),"Ошибка",Toast.LENGTH_SHORT).show();
                 textCopy.setTextColor(getResources().getColor(R.color.red));
                 textCopy.setText(getResources().getString(R.string.errror));
             }
         }
+
+
+    public void OpenHistory(View view) {
+        Intent intent = new Intent(this,HistoryActivity.class);
+        startActivity(intent);
+    }
+
+
+}
+
 
        /* if (a==8){
             if (number.matches("[0-7-]+"))
@@ -212,12 +222,3 @@ public class MainActivity extends Activity {
                     textCopy.setText(getResources().getString(R.string.errror));
                 }
             }*/
-
-    
-    public void OpenHistory(View history) {
-        Intent intent = new Intent(this,HistoryActivity.class);
-        startActivity(intent);
-    }
-
-
-}
